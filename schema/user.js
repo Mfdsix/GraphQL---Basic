@@ -1,5 +1,6 @@
 const users = require("../object/user")
 const UserModel = require("../model/user")
+const userMutation = require("../mutation/user")
 const { 
     GraphQLSchema,
     GraphQLObjectType,
@@ -45,6 +46,7 @@ const rootQuery = new GraphQLObjectType({
 const schema = new GraphQLSchema({
     name: "UserSchema",
     query: rootQuery,
+    mutation: userMutation,
 })
 
 module.exports = schema
