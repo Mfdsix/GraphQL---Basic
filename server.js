@@ -3,6 +3,7 @@ const { graphqlHTTP } = require("express-graphql")
 const basicSchema = require("./schema/basic")
 const userSchema = require("./schema/user")
 const contactSchema = require("./schema/contact")
+const apiSchema = require("./schema/api")
 const app = express()
 
 app.use("/graphql", graphqlHTTP({
@@ -15,6 +16,10 @@ app.use("/user", graphqlHTTP({
 }))
 app.use("/contact", graphqlHTTP({
     schema: contactSchema,
+    graphiql: true,
+}))
+app.use("/api", graphqlHTTP({
+    schema: apiSchema,
     graphiql: true,
 }))
 
