@@ -1,4 +1,5 @@
 const users = require("../object/user")
+const contacts = require("../object/contact")
 const UserModel = require("../model/user")
 const { 
     GraphQLSchema,
