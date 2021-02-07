@@ -16,13 +16,7 @@ const rootQuery = new GraphQLObjectType({
         users: {
             type: new GraphQLList(UserModel),
             description: "List of Users",
-            resolve: () => {
-                let listUsers = users
-                listUsers.forEach((v,i) => {
-                    v.contacts = contacts.filter(c => c.userId == v.id)
-                })
-                return listUsers
-            }
+            resolve: () => users
         }
     })
 })

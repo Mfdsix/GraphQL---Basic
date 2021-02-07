@@ -4,9 +4,9 @@ const {
     GraphQLString,
     GraphQLList,
 } = require("graphql")
-const ContactModel = require("./contact")
 const contacts = require("../object/contact")
 const users = require("../object/user")
+const ContactModel = require("./contact")
 
 const UserModel = new GraphQLObjectType({
     name: 'UserModel',
@@ -26,7 +26,8 @@ const UserModel = new GraphQLObjectType({
             type: GraphQLString,
         },
         contacts: {
-            type: new GraphQLList(ContactModel)
+            type: new GraphQLList(ContactModel),
+            resolve: (user) => contacts.filter(c => c.userId == user.id)
         }
     })
 })

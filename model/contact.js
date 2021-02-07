@@ -3,8 +3,6 @@ const {
     GraphQLObjectType,
     GraphQLInt,
     GraphQLString,
-    GraphQLScalarType,
-    GraphQLList,
 } = require("graphql")
 const contacts = require("../object/contact")
 
