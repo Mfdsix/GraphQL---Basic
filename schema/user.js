@@ -1,5 +1,4 @@
 const users = require("../object/user")
-const contacts = require("../object/contact")
 const UserModel = require("../model/user")
 const { 
     GraphQLSchema,
@@ -22,6 +21,7 @@ const rootQuery = new GraphQLObjectType({
 })
 
 const schema = new GraphQLSchema({
+    name: "UserSchema",
     query: rootQuery,
 })
 

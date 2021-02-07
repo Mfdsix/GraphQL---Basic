@@ -1,6 +1,7 @@
 const { GraphQLSchema, GraphQLObjectType, GraphQLList } = require("graphql");
 const ContactModel = require("../model/contact");
 const contacts = require("../object/contact");
+
 const queries = new GraphQLObjectType({
     name: 'Query',
     description: "All Contact Query",
@@ -13,6 +14,7 @@ const queries = new GraphQLObjectType({
 })
 
 const schema = new GraphQLSchema({
+    name: "ContactSchema",
     query: queries
 })
 

@@ -1,8 +1,11 @@
 const UserModel = require("./user")
 const users = require("../object/user")
 const { 
-    GraphQLObjectType, GraphQLInt, GraphQLString
+    GraphQLObjectType,
+    GraphQLInt,
+    GraphQLString,
 } = require("graphql")
+const contacts = require("../object/contact")
 
 const ContactModel = new GraphQLObjectType({
     name: "ContactModel",
@@ -14,10 +17,9 @@ const ContactModel = new GraphQLObjectType({
         email: {
             type: GraphQLString
         },
-        user: {
-            type: UserModel,
-            resolve: (data) => users.find(user => user.id = data.userId)
-        }
+        userId: {
+            type: GraphQLInt,
+        },
     })
 })
 
