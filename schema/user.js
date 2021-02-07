@@ -8,6 +8,7 @@ const {
     GraphQLList,
 } = require("graphql")
 const contacts = require("../object/contact")
+const ContactModel = require("../model/contact")
 
 const rootQuery = new GraphQLObjectType({
     name: 'Query',
@@ -17,6 +18,26 @@ const rootQuery = new GraphQLObjectType({
             type: new GraphQLList(UserModel),
             description: "List of Users",
             resolve: () => users
+        },
+        user: {
+            type: UserModel,
+            description: "Get One User",
+            args: {
+                id: {
+                    type: GraphQLInt,
+                }
+            },
+            resolve : (_, args) => users.find(u => u.id === args.id)
+        },
+        contact: {
+            type: new GraphQLList(ContactModel),
+            description: "Get All User Contacts",
+            args: {
+                userId: {
+                    type: GraphQLInt,
+                }
+            },
+            resolve: (_, args) => contacts.filter(c => c.userId == args.userId)
         }
     })
 })
