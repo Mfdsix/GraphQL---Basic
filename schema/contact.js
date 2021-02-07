@@ -1,5 +1,6 @@
 const { GraphQLSchema, GraphQLObjectType, GraphQLList, GraphQLString } = require("graphql");
 const { ContactModel, UserContactModel } = require("../model/contact");
+const ContactMutation = require("../mutation/contact")
 const contacts = require("../object/contact");
 const users = require("../object/user");
 
@@ -37,7 +38,8 @@ const queries = new GraphQLObjectType({
 
 const schema = new GraphQLSchema({
     name: "ContactSchema",
-    query: queries
+    query: queries,
+    mutation: ContactMutation,
 })
 
 module.exports = schema
