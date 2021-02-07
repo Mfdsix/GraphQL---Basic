@@ -1,5 +1,5 @@
 const { GraphQLInputObjectType, GraphQLList, GraphQLObjectType, GraphQLSchema } = require("graphql")
-const ContactModel = require("../model/contact")
+const { ContactModel } = require("../model/contact")
 const UserModel = require("../model/user")
 const contacts = require("../object/contact")
 const users = require("../object/user")

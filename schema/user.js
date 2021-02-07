@@ -8,7 +8,7 @@ const {
     GraphQLList,
 } = require("graphql")
 const contacts = require("../object/contact")
-const ContactModel = require("../model/contact")
+const { ContactModel } = require("../model/contact")
 
 const rootQuery = new GraphQLObjectType({
     name: 'Query',

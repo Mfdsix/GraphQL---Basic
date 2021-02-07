@@ -5,8 +5,7 @@ const {
     GraphQLList,
 } = require("graphql")
 const contacts = require("../object/contact")
-const users = require("../object/user")
-const ContactModel = require("./contact")
+const { ContactModel } = require("./contact")
 
 const UserModel = new GraphQLObjectType({
     name: 'UserModel',

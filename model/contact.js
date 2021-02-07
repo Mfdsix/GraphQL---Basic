@@ -47,4 +47,7 @@ const ContactModel = new GraphQLObjectType({
     })
 })
 
-module.exports = ContactModel
+module.exports = {
+    ContactModel,
+    UserContactModel,
+}
