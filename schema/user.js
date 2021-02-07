@@ -7,6 +7,7 @@ const {
     GraphQLInt,
     GraphQLList,
 } = require("graphql")
+const contacts = require("../object/contact")
 
 const rootQuery = new GraphQLObjectType({
     name: 'Query',
@@ -15,7 +16,13 @@ const rootQuery = new GraphQLObjectType({
         users: {
             type: new GraphQLList(UserModel),
             description: "List of Users",
-            resolve: () => users
+            resolve: () => {
+                let listUsers = users
+                listUsers.forEach((v,i) => {
+                    v.contacts = contacts.filter(c => c.userId == v.id)
+                })
+                return listUsers
+            }
         }
     })
 })

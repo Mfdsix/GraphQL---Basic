@@ -26,8 +26,7 @@ const UserModel = new GraphQLObjectType({
             type: GraphQLString,
         },
         contacts: {
-            type: new GraphQLList(ContactModel),
-            resolve: (user) => contacts.filter(w => w.userId == user.id)
+            type: new GraphQLList(ContactModel)
         }
     })
 })
